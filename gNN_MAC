@@ -13,20 +13,17 @@ port (
 		ready 	: out std_logic); -- denotes the validity of the mac signal
 end gNN_MAC;
 
-architecture mac_Implementation of gNN_MAC is
-	signal temp : signed(16 downto 0);
+architecture mac of gNN_MAC is
+	signal temp:  std_logic_vector(20 downto 0);
 	begin
-	counter : process(rst, clk)
+		process(clk,rst)
 		begin
-		if rst = '1' then
-			temp <= (others => '0');
-		elsif rising_edge(clk) then
-			ready <= '0';
-				for i in 1 to 1000 loop
-					temp <= temp + signed(x) * signed(y);
-				end loop;
-				ready <= '1';
-		end if;
-	end process;
-	mac <= std_logic_vector(temp);
-end mac_Implementation;
+	      ready <= '1';
+			if (rst = '1') then
+				temp <= (others => '0');
+			elsif(rising_edge(clk)) then
+			   temp <= std_logic_vector(unsigned(temp) + unsigned(unsigned(x)*unsigned(y)));
+			end if;
+	   end process;
+	   mac <= temp;
+	end mac;
