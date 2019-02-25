@@ -22,7 +22,7 @@ architecture mac_Implementation of gNN_MAC is
 			temp <= (others => '0');
 		elsif rising_edge(clk) then
 			ready <= '0';
-				for i in 1 to 1000 loop				-- N = 1000
+				for i in 1 to 1000 loop
 					temp <= temp + signed(x) * signed(y);
 				end loop;
 				ready <= '1';
