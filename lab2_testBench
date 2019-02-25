@@ -4,12 +4,12 @@ use ieee.numeric_std.all;
 use std.textio.all;
 use ieee.std_logic_textio.all;
 
-entity g07_lab2_tb is
-end g07_lab2_tb;
+entity g00_lab2_tb is
+end g00_lab2_tb;
 
-architecture test of g07_lab2_tb is
+architecture test of g00_lab2_tb is
 
-component g07_lab2 is
+component g00_lab2 is
 	port(x    : in std_logic_vector(9 downto 0);
 	     y    : in std_logic_vector(9 downto 0);
 	     N    : in std_logic_vector(9 downto 0);
@@ -17,7 +17,7 @@ component g07_lab2 is
 	     rst  : in std_logic;
 	     mac  : out std_logic_vector(20 downto 0);
 	     ready: out std_logic);
-end component g07_lab2;
+end component g00_lab2;
 
 file file_VECTORS_X: text;
 file file_VECTORS_Y: text;
@@ -34,7 +34,7 @@ signal mac_out  : std_logic_vector(20 downto 0);
 signal ready_out: std_logic;
 
 begin
-	g07_MAC_INST: g07_lab2
+	g00_MAC_INST: g00_MAC
 	port map(
 	 x => x_in,
 	 y => y_in,
@@ -53,7 +53,7 @@ clk_generation : process
   end process clk_generation;
 
 
-feeding_inst : process is
+feeding_instr : process is
   variable v_Iline1 : line;
   variable v_Iline2 : line;
   variable v_Oline : line;
@@ -91,6 +91,6 @@ feeding_inst : process is
 
     wait;
 
-  end process feeding_inst;
+  end process feeding_instr;
 
 end architecture test;
