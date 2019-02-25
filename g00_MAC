@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use IEEE.NUMERIC_STD.ALL;
 
-entity gNN_MAC is
+entity g00_MAC is
 port (
 		x		: in std_logic_vector(7 downto 0); -- first input
 		y		: in std_logic_vector(8 downto 0); -- second input
@@ -11,7 +11,7 @@ port (
 		rst 	: in std_logic; --asynchronous active - high reset
 		mac		: out std_logic_vector(16 downto 0); -- output of MAC unit
 		ready 	: out std_logic); -- denotes the validity of the mac signal
-end gNN_MAC;
+end g00_MAC;
 
 architecture mac of gNN_MAC is
 	signal temp:  std_logic_vector(20 downto 0);
