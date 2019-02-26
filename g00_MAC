@@ -14,16 +14,19 @@ port (
 end g00_MAC;
 
 architecture mac of gNN_MAC is
-	signal temp:  std_logic_vector(20 downto 0);
+	signal added:  std_logic_vector(20 downto 0);
 	begin
 		process(clk,rst)
 		begin
 	      ready <= '1';
+
 			if (rst = '1') then
-				temp <= (others => '0');
+				added <= (others => '0');
+
 			elsif(rising_edge(clk)) then
-			   temp <= std_logic_vector(unsigned(temp) + unsigned(unsigned(x)*unsigned(y)));
+			   added <= std_logic_vector(unsigned(added) + unsigned(unsigned(x)*unsigned(y)));
+
 			end if;
 	   end process;
-	   mac <= temp;
+	   mac <= added;
 	end mac;

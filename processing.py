@@ -17,6 +17,7 @@ def to_twos_comp(word, word_precision, fractional, fractional_precision):
 
     while (len(fractional) < fractional_precision):
         fractional = fractional + '0'
+
     return binary + fractional
 
 def calculatePrecision(values):
